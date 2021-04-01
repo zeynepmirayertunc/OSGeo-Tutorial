@@ -32,8 +32,12 @@
         
             var markers = new OpenLayers.Layer.Markers( "Markers" );
             map.addLayer(markers)
-                
-            markers.addMarker(new OpenLayers.Marker(lonLat))
+
+            var size = new OpenLayers.Size(21,25);
+            var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+            var icon =new OpenLayers.Icon('https://cdn2.iconfinder.com/data/icons/map-locations-filled-pixel-perfect/64/pin-map-location-27-512.png',size,offset)
+            
+            markers.addMarker(new OpenLayers.Marker(lonLat,icon.clone()))
                 
             map.setCenter (lonLat, zoom)
             }
